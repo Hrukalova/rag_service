@@ -1,21 +1,20 @@
-# 🏛️ HSE Retrieval Service (pure-RAG)
 
 Микросервис для **семантического поиска** по базе знаний НИУ ВШЭ.
 
-## 🚀 Возможности
+Возможности
 -   **Векторный поиск**: Использует `pgvector` и модель `mxbai-embed-large-v1` для ANN-поиска.
 -   **Profile Scoping (Безопасность)**: Фильтрация документов на уровне БД через `scope_json` (учитывает вуз, кампус, факультет, программу и роль студента).
 -   **Интеграция со схемой `library`**: Поддерживает актуальную структуру таблиц `documents`, `chunks`, `chunk_embeddings`.
 -   **FastAPI**: Быстрый асинхронный поиск с валидацией через Pydantic.
 
-## 🛠️ Стек
+Стек
 -   **Python 3.10+**
 -   **FastAPI** (Web Framework)
 -   **SQLAlchemy / AsyncPG** (DB Ops)
 -   **Sentence-Transformers** (Embedder)
 -   **PgVector** (Vector database engine)
 
-## 📦 Быстрый старт
+Старт
 1.  **Установка зависимостей**:
     ```bash
     pip install -r requirements.txt
@@ -30,7 +29,7 @@
     uvicorn main:app --reload --port 8001
     ```
 
-## 🔌 API Workflow
+API Workflow
 Эндпоинт: `POST /retrieve`
 ```json
 {
@@ -45,7 +44,7 @@
 }
 ```
 
-## 🔐 Фильтрация (Scope)
+Фильтрация (Scope)
 Поиск вернет чанки только из тех документов, где `scope_json` либо пуст, либо содержит значения, соответствующие профилю пользователя. Проверка идет по следующим полям:
 - `university_ids`
 - `campus_ids`
